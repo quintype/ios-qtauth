@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QTAuth'
-  s.version          = '0.1.8'
+  s.version          = '0.1.9'
   s.summary          = 'A short description of QTAuth.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/benoy/QTAuth'
+  s.homepage         = 'https://github.com/quintype/ios-qtauth'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Benoy Vijayan' => 'benoy.apple@gmail.com' }
-  s.source           = { :git => 'git@github.com:benoy/QTAuth.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/quintype/ios-qtauth.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
