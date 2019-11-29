@@ -46,11 +46,11 @@ PODS:
   - LinkedinSwift (1.7.9):
     - AFNetworking (>= 3.1.0)
     - IOSLinkedInAPIFix (>= 2.0.4)
-  - QTAuth (0.1.5):
-    - FBSDKLoginKit
-    - GoogleSignIn
+  - QTAuth (0.2.0):
+    - FBSDKLoginKit (~> 5.8.0)
+    - GoogleSignIn (~> 5.0.1)
     - LinkedinSwift (~> 1.7.7)
-    - TwitterKit
+    - TwitterKit (= 3.4.2)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
     - TwitterCore (>= 3.2.0)
@@ -86,10 +86,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   IOSLinkedInAPIFix: a520fd805a03dade35f42904c7d89ded2a84c752
   LinkedinSwift: f92083bf0404938768cc2cfd8c277205b566236f
-  QTAuth: 9376731ab24a78493644b1311c64a9c0920dba37
+  QTAuth: 6cf6595d6765a5d065bf319ee3e56503a08490f2
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: e036f3869d6cb6e6a8cba66ddd7691ece55309c6
+PODFILE CHECKSUM: e32bfa8c8caf0d383500e907751a3e64a49451d9
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

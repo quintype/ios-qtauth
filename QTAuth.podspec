@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QTAuth'
-  s.version          = '0.1.9'
-  s.summary          = 'A short description of QTAuth.'
+  s.version          = '0.2.0'
+  s.summary          = 'Authentication (Login) library developed by Quintype'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -24,10 +24,10 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/quintype/ios-qtauth'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Benoy Vijayan' => 'benoy.apple@gmail.com' }
+  s.author           = { 'Quintype' => 'ios@quintype.com' }
   s.source           = { :git => 'https://github.com/quintype/ios-qtauth.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  s.swift_version = '4.0'
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'QTAuth/Classes/**/*'
@@ -41,8 +41,8 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'FBSDKLoginKit'
-  s.dependency 'GoogleSignIn'
-  s.dependency 'TwitterKit'
+  s.dependency 'FBSDKLoginKit', '~> 5.8.0'
+  s.dependency 'GoogleSignIn', '~> 5.0.1'
+  s.dependency 'TwitterKit', '3.4.2'
   s.dependency 'LinkedinSwift', '~> 1.7.7'
 end

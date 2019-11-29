@@ -216,10 +216,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = K6F4AGE4B2;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = K6F4AGE4B2;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -523,6 +525,7 @@
 			baseConfigurationReference = 4609CD9678D30C1BB925CFD3 /* Pods-QTAuth_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K6F4AGE4B2;
 				INFOPLIST_FILE = QTAuth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -539,6 +542,7 @@
 			baseConfigurationReference = 6642B2FA900105C0AB5A5FC9 /* Pods-QTAuth_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K6F4AGE4B2;
 				INFOPLIST_FILE = QTAuth/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -554,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 119FA72557DBA8F8E34A50B3 /* Pods-QTAuth_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = K6F4AGE4B2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -576,6 +581,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B854BF4BBA0588A902E36BFC /* Pods-QTAuth_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = K6F4AGE4B2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
