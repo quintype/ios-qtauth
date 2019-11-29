@@ -1,0 +1,6 @@
+framework module Pods_QTAuth_Tests {
+  umbrella header "Pods-QTAuth_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

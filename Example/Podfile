@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'QTAuth_Example' do
+  pod 'QTAuth', :path => '../'
+
+  target 'QTAuth_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

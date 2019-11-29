@@ -1,0 +1,22 @@
+{
+  "name": "QTAuth",
+  "version": "0.1.0",
+  "summary": "A short description of QTAuth.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/benoy/QTAuth",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Benoy Vijayan": "benoy.apple@gmail.com"
+  },
+  "source": {
+    "git": "git@github.com:benoy/QTAuth.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "QTAuth/Classes/**/*"
+}

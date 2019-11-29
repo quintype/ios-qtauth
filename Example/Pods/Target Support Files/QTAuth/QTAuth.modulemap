@@ -1,0 +1,6 @@
+framework module QTAuth {
+  umbrella header "QTAuth-umbrella.h"
+
+  export *
+  module * { export * }
+}

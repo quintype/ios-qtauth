@@ -1,0 +1,16 @@
+PODS:
+  - QTAuth (0.1.0)
+
+DEPENDENCIES:
+  - QTAuth (from `../`)
+
+EXTERNAL SOURCES:
+  QTAuth:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  QTAuth: 2c795a6f6887c4f240af924ae80daff440933ab7
+
+PODFILE CHECKSUM: e036f3869d6cb6e6a8cba66ddd7691ece55309c6
+
+COCOAPODS: 1.8.3
