@@ -9,29 +9,30 @@
 import Foundation
 import UIKit
 
-public enum QTAuthProvider {
+public enum QTAuthProvider: String, Codable {
     case facebook
     case google
     case twitter
-    case linkedin
+    case linkedIn
     case email
     
-    var logo: UIImage? {
+    public var logo: UIImage? {
+        
         switch self {
         case .facebook:
-            return UIImage(named: "Facebook")
+            return UIImage(named: "Facebook", in: bundle, compatibleWith: nil)
         case .google:
-            return UIImage(named: "Google")
+            return UIImage(named: "Google", in: bundle, compatibleWith: nil)
         case .twitter:
-            return UIImage(named: "Twitter")
-        case .linkedin:
-                return UIImage(named: "LinkedIn")
+            return UIImage(named: "Twitter", in: bundle, compatibleWith: nil)
+        case .linkedIn:
+            return UIImage(named: "LinkedIn", in: bundle, compatibleWith: nil)
         case .email:
-            return UIImage(named: "Email")
+            return UIImage(named: "Mail", in: bundle, compatibleWith: nil)
         }
     }
     
-    var buttonTitle: String {
+    public var buttonTitle: String {
         switch self {
         case .facebook:
             return "Log-in with Facebook"
@@ -39,7 +40,7 @@ public enum QTAuthProvider {
             return "Log-in with Google"
         case .twitter:
             return "Log-in with Twitter"
-        case .linkedin:
+        case .linkedIn:
             return "Log-in with Linked-in"
         case .email:
             return "Log-in with Email"
@@ -47,29 +48,84 @@ public enum QTAuthProvider {
     }
 }
 
-public enum QTAuthFeture {
+public enum QTAuthFeture: String, Codable {
     
     case signup
     case forgotPassword
-    case phoneAuth
+    case otpAuth
     case resetPassword
 }
 
 public enum QTAuthError: Error {
-    
+    case authFailed
+    case authCanceled
+    case invalidConfig
+    case invalidBaseUrl
+    case parserError
 }
 
-public struct QTAuthUIConfig {
-    public let authProviders: [QTAuthProvider]?
-    public let logoImage: UIImage?
-    public let features: [QTAuthFeture]?
-    public let primaryColor: UIColor?
-    public let secondaryColor: UIColor?
-    public let primaryFont: UIFont?
-    public let secondaryFont: UIFont?
+public struct QTFontInfo: Codable {
+    public let name: String?
+    public let size: CGFloat?
+    
+    public init(name: String, size: CGFloat) {
+        self.name = name
+        self.size = size
+    }
+    
+    var font: UIFont {
+        return UIFont(name: name ?? "Helvetica", size: size ?? 17) ?? UIFont.systemFont(ofSize: 17)
+    }
+}
 
-    public let didFinishSignin: ((Any?, QTAuthError?) -> Void)?
-    public let didFinishSignup: ((Any?, QTAuthError?) -> Void)?
-    public let didResetPassword: ((Any?, QTAuthError?) -> Void)?
-    public let didSendResetPasswordLink: ((Any?, QTAuthError?) -> Void)?
+public struct Credential: Codable {
+    public let apiKey: String?
+    public let sec: String?
+    
+    public init(apiKey: String, sec: String) {
+        self.apiKey = apiKey
+        self.sec = sec
+    }
+}
+
+public struct QTAuthUIConfig: Codable {
+    
+    //authProvideres
+    public let authProviders: [QTAuthProvider]?
+    public let logo: String?
+    public let features: [QTAuthFeture]?
+    public let primaryColor: String?
+    public let secondaryColor: String?
+    public let primaryFont: QTFontInfo?
+    public let secondaryFont: QTFontInfo?
+    
+    public let googleClientId: String?
+    public let twitterKeys: Credential?
+    public let linkedInKeys: Credential?
+    public let emaiAuthBaseUrl: String?
+    
+    public init(authProviders: [QTAuthProvider]? = nil,
+                logo: String? = "qtlogo",
+                features: [QTAuthFeture]? = [.signup, .resetPassword, .forgotPassword, .otpAuth],
+                primaryColor: String? = "#000000",
+                secondaryColor: String? = "#000000",
+                primaryFont: QTFontInfo? = QTFontInfo(name: "Helvetica", size: 17),
+                secondaryFont: QTFontInfo? = QTFontInfo(name: "Helvetica", size: 14),
+                googleClientId: String? = nil,
+                twitterKeys: Credential? = nil,
+                linkedInKeys: Credential? = nil,
+                emaiAuthBaseUrl: String? = nil) {
+        
+        self.authProviders = authProviders ?? [QTAuthProvider.email]
+        self.logo = logo
+        self.features = features
+        self.primaryColor = primaryColor
+        self.secondaryColor = secondaryColor
+        self.primaryFont = primaryFont
+        self.secondaryFont = secondaryFont
+        self.googleClientId = googleClientId
+        self.twitterKeys = twitterKeys
+        self.linkedInKeys = linkedInKeys
+        self.emaiAuthBaseUrl = emaiAuthBaseUrl
+    }
 }

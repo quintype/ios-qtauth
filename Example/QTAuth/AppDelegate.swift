@@ -13,10 +13,40 @@ import QTAuth
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+
+        
+        do{
+            try QTAuth.instance.inittialize(with: "QTAuthConfig")
+            window?.rootViewController = QTAuth.instance.rootController
+        } catch {
+            
+            let providers: [QTAuthProvider] = [.facebook, .google, .twitter, .linkedIn, .email]
+                   let logo = UIImage(named: "Logo")
+            let googleClientId = "1049117273259-ogje0ol9nf6k3up3fbvjh9b814atp1pb.apps.googleusercontent.com"
+
+            let twitterKeys = Credential(apiKey: "djmfdO25cM4xjbBIbjuwfQ8pr", sec: "mbdDyFjffX3RE2DL2af5I3mn79rEOQljrdKGV9y9hAEROGxap3")
+                
+
+            let liKeys = Credential(apiKey: "81p81utz045o5m", sec: "14d8eabelh7bLcS3")
+
+            let config = QTAuthUIConfig(authProviders: providers,
+                                        logo: "Logo",
+                                        googleClientId: googleClientId,
+                                        twitterKeys: twitterKeys,
+                                        linkedInKeys: liKeys)
+
+            QTAuth.instance.initialize(with: config)
+           
+
+            
+        }
+        
+         QTAuth.instance.configFacebookAuth(with: application, launchOprions: launchOptions)
         return true
     }
 
@@ -42,6 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return QTAuth.instance.application(app, open: url, options: options)
+    }
 }
 

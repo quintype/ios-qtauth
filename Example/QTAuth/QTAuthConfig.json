@@ -1,0 +1,37 @@
+{
+  "publisher": "Prothom-alo",
+  "authProviders": [
+    "facebook",
+    "google",
+    "twitter",
+    "linkedIn",
+    "email"
+  ],
+  "logo": "Logo",
+  "features": [
+    "signup",
+    "forgotPassword",
+    "otpAuth",
+    "resetPassword"
+  ],
+  "primaryColor": "#000000",
+  "secondaryColor": "#6D6D6D",
+  "primaryFont": {
+    "name": "Helvetica",
+    "size": 17
+  },
+  "secondaryFont": {
+    "name": "Helvetica",
+    "size": 14
+  },
+  "googleClientId": "1049117273259-ogje0ol9nf6k3up3fbvjh9b814atp1pb.apps.googleusercontent.com",
+  "twitterKeys": {
+    "apiKey": "djmfdO25cM4xjbBIbjuwfQ8pr",
+    "sec": "mbdDyFjffX3RE2DL2af5I3mn79rEOQljrdKGV9y9hAEROGxap3"
+  },
+  "linkedInKeys": {
+    "apiKey": "81p81utz045o5m",
+    "sec": "14d8eabelh7bLcS3"
+  },
+  "emaiAuthBaseUrl": "https://prothomalo.qtstage.io"
+}
