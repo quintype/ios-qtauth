@@ -27,8 +27,8 @@
   },
   "static_framework": true,
   "dependencies": {
-    "FBSDKLoginKit": [
-      "~> 5.8.0"
+    "FacebookLogin": [
+      "~> 0.9.0"
     ],
     "GoogleSignIn": [
       "~> 5.0.1"

@@ -19,6 +19,12 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.2.0)
   - AppAuth/Core (1.2.0)
   - AppAuth/ExternalUserAgent (1.2.0)
+  - FacebookCore (0.9.0):
+    - FBSDKCoreKit (~> 5.0)
+  - FacebookLogin (0.9.0):
+    - FacebookCore (~> 0.9.0)
+    - FBSDKCoreKit (~> 5.0)
+    - FBSDKLoginKit (~> 5.0)
   - FBSDKCoreKit (5.8.0):
     - FBSDKCoreKit/Basics (= 5.8.0)
     - FBSDKCoreKit/Core (= 5.8.0)
@@ -47,7 +53,7 @@ PODS:
     - AFNetworking (>= 3.1.0)
     - IOSLinkedInAPIFix (>= 2.0.4)
   - QTAuth (0.2.0):
-    - FBSDKLoginKit (~> 5.8.0)
+    - FacebookLogin (~> 0.9.0)
     - GoogleSignIn (~> 5.0.1)
     - LinkedinSwift (~> 1.7.7)
     - TwitterKit (= 3.4.2)
@@ -62,6 +68,8 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - AppAuth
+    - FacebookCore
+    - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
     - GoogleSignIn
@@ -79,6 +87,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
+  FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
+  FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
   FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
   FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   GoogleSignIn: 3a51b9bb8e48b635fd7f4272cee06ca260345b86
@@ -86,7 +96,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   IOSLinkedInAPIFix: a520fd805a03dade35f42904c7d89ded2a84c752
   LinkedinSwift: f92083bf0404938768cc2cfd8c277205b566236f
-  QTAuth: 6cf6595d6765a5d065bf319ee3e56503a08490f2
+  QTAuth: 9791a2563414650af0aeb7a0f8ef20b7669fec2d
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
