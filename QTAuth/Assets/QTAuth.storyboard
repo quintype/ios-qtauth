@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="266-lR-L52">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QTLoginViewController" customModule="QTAuth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QTLoginViewController" id="BYZ-38-t0r" customClass="QTLoginViewController" customModule="QTAuth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ULo-H4-VKA"/>
                         <viewControllerLayoutGuide type="bottom" id="LUT-lR-TnR"/>
@@ -19,15 +19,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qtlogo" translatesAutoresizingMaskIntoConstraints="NO" id="j3t-Qs-oNu">
-                                <rect key="frame" x="30" y="64" width="260" height="49"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="j3t-Qs-oNu">
+                                <rect key="frame" x="30" y="20" width="260" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="j3t-Qs-oNu" secondAttribute="height" multiplier="16:3" id="y6A-kz-cH8"/>
                                 </constraints>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOL-hU-2kj">
-                                <rect key="frame" x="119" y="143" width="82.5" height="21"/>
+                                <rect key="frame" x="119" y="99" width="82.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="JM6-jr-Izu"/>
                                 </constraints>
@@ -103,7 +103,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="yFY-Tu-tlj">
-                                <rect key="frame" x="20" y="174" width="280" height="190"/>
+                                <rect key="frame" x="20" y="130" width="280" height="234"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -198,7 +198,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0wo-tS-12q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="V0o-cQ-Ww2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -217,7 +217,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MmV-eG-i2K"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aIb-sE-Q6a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -239,7 +239,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qtlogo" translatesAutoresizingMaskIntoConstraints="NO" id="L71-Ra-y31">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="L71-Ra-y31">
                                 <rect key="frame" x="30" y="40" width="260" height="49"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
@@ -340,7 +340,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qtlogo" translatesAutoresizingMaskIntoConstraints="NO" id="RtI-in-kYz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="RtI-in-kYz">
                                 <rect key="frame" x="30" y="40" width="260" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RtI-in-kYz" secondAttribute="height" multiplier="16:3" id="AF5-RU-GVJ"/>
@@ -503,7 +503,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qtlogo" translatesAutoresizingMaskIntoConstraints="NO" id="qUr-7X-fw1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qUr-7X-fw1">
                                 <rect key="frame" x="30" y="40" width="260" height="49"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
@@ -680,7 +680,7 @@
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="700" translatesAutoresizingMaskIntoConstraints="NO" id="UVR-Ii-JLE">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qtlogo" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-I1-hAV">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qBa-I1-hAV">
                                                 <rect key="frame" x="30" y="20" width="260" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qBa-I1-hAV" secondAttribute="height" multiplier="16:3" id="jzL-OJ-Jod"/>
@@ -910,32 +910,15 @@
             </objects>
             <point key="canvasLocation" x="926" y="415"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="L9Y-MC-Ne2">
-            <objects>
-                <navigationController storyboardIdentifier="QTAuthRootViewControler" automaticallyAdjustsScrollViewInsets="NO" id="266-lR-L52" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kY0-fJ-NCW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IGW-Zf-Spt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QBo-oQ-0rP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1346" y="107"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Facebook" width="24" height="24"/>
-        <image name="qtlogo" width="316.5" height="72"/>
+        <image name="logo" width="230" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IkN-h6-TTh"/>
-        <segue reference="BT3-OO-vMA"/>
-        <segue reference="ca1-tC-OEZ"/>
+        <segue reference="OSc-Bb-elz"/>
+        <segue reference="IuN-c5-miw"/>
+        <segue reference="iJK-os-UY2"/>
+        <segue reference="76I-Ug-q1u"/>
     </inferredMetricsTieBreakers>
 </document>

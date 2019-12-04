@@ -41,7 +41,7 @@ public class QTAuth {
         authConfig = config
     }
     
-    public func inittialize(with configName: String) throws {
+    public func initialize(with configName: String) throws {
         guard let path = Bundle.main.path(forResource: configName, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let decoded = try? JSONDecoder().decode(QTAuthUIConfig.self, from: data) else {
@@ -51,9 +51,9 @@ public class QTAuth {
         authConfig = decoded
     }
     
-    public var rootController: UINavigationController {
+    public var rootController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "QTAuth", bundle: bundle)
-        let rootController = storyBoard.instantiateViewController(withIdentifier: "QTAuthRootViewControler") as! UINavigationController
+        let rootController = storyBoard.instantiateViewController(withIdentifier: "QTLoginViewController")
         return rootController
     }
     
@@ -74,9 +74,9 @@ public class QTAuth {
 
 //MARK: FaceBook
 extension QTAuth {
-    public func configFacebookAuth(with  application: UIApplication, launchOprions: [UIApplicationLaunchOptionsKey: Any]?) {
+    public func configFacebookAuth(with  application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         self.application = application
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOprions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
       
     func facebookOpen(url: URL, sourceApplication: String, anotation: Any) -> Bool {
