@@ -29,14 +29,14 @@ class QTEmailAuth {
     private var httpClient = QTAuthHttpClient()
     
     func login(with email: String,
-               passowrd: String,
+               password: String,
                callback: @escaping (Any?, Error?) -> Void) {
         
-        let urlStr = authConfig.emaiAuthBaseUrl ?? "" + Api.signIn.rawValue
-        let params = ["email":email, "password":passowrd]
+        let urlStr = (authConfig.emailAuthBaseUrl ?? "") + Api.signIn.rawValue
+        let params = ["email":email, "password":password]
         httpClient.postData(with: urlStr,
                            param: params,
-                           useXqtAuth: true,
+                           useXqtAuth: false,
                            callback: {data, error in
                             
                             guard let data = data, error == nil else {
@@ -46,7 +46,7 @@ class QTEmailAuth {
                             }
                             let str = String(decoding: data, as: UTF8.self)
                             print("\(str)")
-                            guard let member = try? JSONDecoder().decode(QTAuthMemeber.self, from: data) else {
+                            guard let member = try? JSONDecoder().decode(QTAuthMember.self, from: data) else {
                                 callback(nil, QTAuthError.parserError)
                                 return
                                 
@@ -57,7 +57,7 @@ class QTEmailAuth {
     
     func signup(with signupRequest: QTAuthSignupRequest, callback: @escaping (Any?, Error?) -> Void) {
         
-        let urlStr = "\(authConfig.emaiAuthBaseUrl ?? "")\(Api.signUp.rawValue)" 
+        let urlStr = "\(authConfig.emailAuthBaseUrl ?? "")\(Api.signUp.rawValue)" 
         let params = signupRequest.dictionary
         httpClient.postData(with: urlStr,
                            param: params,
@@ -68,7 +68,7 @@ class QTEmailAuth {
                 callback(nil, error)
                 return
             }
-            guard let member = try? JSONDecoder().decode(QTAuthMemeber.self, from: data) else {
+            guard let member = try? JSONDecoder().decode(QTAuthMember.self, from: data) else {
                 callback(nil, QTAuthError.parserError)
                 return
             }
@@ -113,10 +113,10 @@ class QTAuthHttpClient: QTAuthHttpClientProtocol {
         }
         
         if useXqtAuth == true {
+            // TODO: Use actual X-QT-Auth here
             request.addValue("dummy-auth", forHTTPHeaderField: xqtAuthKey)
         }
         request.httpMethod = "POST"
-        
         URLSession.shared.dataTask(with: request, completionHandler:{ data, response, error  in
             if error != nil {
                 callback(nil, error)
@@ -131,7 +131,7 @@ class QTAuthHttpClient: QTAuthHttpClientProtocol {
                     return
                 }
                 UserDefaults.standard.set(xqtAuth, forKey: xqtAuthKey)
-                UserDefaults.standard.synchronize()
+//                UserDefaults.standard.synchronize(
                 
             } else {
                 callback(nil, error)

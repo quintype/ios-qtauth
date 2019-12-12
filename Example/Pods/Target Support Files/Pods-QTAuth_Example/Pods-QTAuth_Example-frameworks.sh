@@ -171,6 +171,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IOSLinkedInAPIFix/IOSLinkedInAPIFix.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LinkedinSwift/LinkedinSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework"
   install_framework "${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework"
   install_framework "${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework"
 fi
@@ -185,6 +188,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IOSLinkedInAPIFix/IOSLinkedInAPIFix.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LinkedinSwift/LinkedinSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework"
   install_framework "${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework"
   install_framework "${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework"
 fi

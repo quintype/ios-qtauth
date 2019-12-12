@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         do{
-            try QTAuth.instance.inittialize(with: "QTAuthConfig")
+            try QTAuth.instance.initialize(with: "QTAuthConfig")
             window?.rootViewController = QTAuth.instance.rootController
         } catch {
             
@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-         QTAuth.instance.configFacebookAuth(with: application, launchOprions: launchOptions)
+         QTAuth.instance.configFacebookAuth(with: application, launchOptions: launchOptions)
         return true
     }
 

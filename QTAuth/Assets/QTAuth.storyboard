@@ -3,10 +3,110 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Sign Up View Controller-->
+        <scene sceneID="LEi-HT-S1y">
+            <objects>
+                <viewController id="xgv-TM-xfh" customClass="SignUpViewController" customModule="QTAuth" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BFc-U7-vsY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qvy-Gg-IMA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XYZ-Pa-x2g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="756"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="OKC-w1-Mho">
+                                <rect key="frame" x="48" y="0.0" width="224" height="756"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nH8-FZ-34X">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="756"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Y7O-9x-J2I">
+                                                <rect key="frame" x="22.5" y="16" width="179" height="33.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Y7O-9x-J2I" secondAttribute="height" multiplier="167:31" id="GPb-GF-hby"/>
+                                                </constraints>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5l1-XU-kjd">
+                                                <rect key="frame" x="0.0" y="115.5" width="224" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dzd-97-Nb6">
+                                                <rect key="frame" x="0.0" y="157.5" width="224" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-ag-LYp">
+                                                <rect key="frame" x="0.0" y="199.5" width="224" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="b8q-ag-LYp" firstAttribute="centerX" secondItem="nH8-FZ-34X" secondAttribute="centerX" id="BfF-fW-HHd"/>
+                                            <constraint firstItem="b8q-ag-LYp" firstAttribute="top" secondItem="dzd-97-Nb6" secondAttribute="bottom" constant="8" id="EfZ-na-pzW"/>
+                                            <constraint firstItem="Y7O-9x-J2I" firstAttribute="top" secondItem="nH8-FZ-34X" secondAttribute="top" constant="16" id="HXV-uc-xs1"/>
+                                            <constraint firstItem="Y7O-9x-J2I" firstAttribute="centerX" secondItem="nH8-FZ-34X" secondAttribute="centerX" id="OKr-eI-ZV5"/>
+                                            <constraint firstItem="dzd-97-Nb6" firstAttribute="centerX" secondItem="nH8-FZ-34X" secondAttribute="centerX" id="RvM-S6-ahc"/>
+                                            <constraint firstItem="dzd-97-Nb6" firstAttribute="top" secondItem="5l1-XU-kjd" secondAttribute="bottom" constant="8" id="TIW-UH-HNO"/>
+                                            <constraint firstItem="5l1-XU-kjd" firstAttribute="centerX" secondItem="nH8-FZ-34X" secondAttribute="centerX" id="kLC-fP-26d"/>
+                                            <constraint firstItem="Y7O-9x-J2I" firstAttribute="width" secondItem="nH8-FZ-34X" secondAttribute="width" multiplier="0.8" id="xcb-vq-0jv"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NWe-g0-HNU">
+                                        <rect key="frame" x="0.0" y="73.5" width="224" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nH8-FZ-34X" firstAttribute="centerX" secondItem="OKC-w1-Mho" secondAttribute="centerX" id="ATq-4w-CCs"/>
+                                    <constraint firstAttribute="trailing" secondItem="nH8-FZ-34X" secondAttribute="trailing" id="CEL-MG-kZC"/>
+                                    <constraint firstItem="NWe-g0-HNU" firstAttribute="top" secondItem="Y7O-9x-J2I" secondAttribute="bottom" constant="24" id="Fii-ao-1lt"/>
+                                    <constraint firstItem="b8q-ag-LYp" firstAttribute="width" secondItem="NWe-g0-HNU" secondAttribute="width" id="MM2-mo-OFh"/>
+                                    <constraint firstItem="nH8-FZ-34X" firstAttribute="leading" secondItem="OKC-w1-Mho" secondAttribute="leading" id="S9Y-6Z-Vv8"/>
+                                    <constraint firstItem="nH8-FZ-34X" firstAttribute="top" secondItem="OKC-w1-Mho" secondAttribute="top" id="VU6-Qk-iUA"/>
+                                    <constraint firstItem="5l1-XU-kjd" firstAttribute="top" secondItem="NWe-g0-HNU" secondAttribute="bottom" constant="8" id="he7-wB-gT9"/>
+                                    <constraint firstAttribute="bottom" secondItem="nH8-FZ-34X" secondAttribute="bottom" id="l0F-mu-aic"/>
+                                    <constraint firstItem="nH8-FZ-34X" firstAttribute="centerY" secondItem="OKC-w1-Mho" secondAttribute="centerY" id="lkX-kB-CP1"/>
+                                    <constraint firstItem="dzd-97-Nb6" firstAttribute="width" secondItem="NWe-g0-HNU" secondAttribute="width" id="n5P-U0-CAy"/>
+                                    <constraint firstItem="NWe-g0-HNU" firstAttribute="width" secondItem="nH8-FZ-34X" secondAttribute="width" id="t9H-kk-PtD"/>
+                                    <constraint firstItem="5l1-XU-kjd" firstAttribute="width" secondItem="NWe-g0-HNU" secondAttribute="width" id="uFm-tL-tof"/>
+                                    <constraint firstItem="NWe-g0-HNU" firstAttribute="centerX" secondItem="nH8-FZ-34X" secondAttribute="centerX" id="yWO-QI-7zC"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="jc0-66-rDz"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="lGo-1Q-WYE"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OKC-w1-Mho" firstAttribute="centerX" secondItem="XYZ-Pa-x2g" secondAttribute="centerX" id="7a7-Zf-WSn"/>
+                            <constraint firstItem="OKC-w1-Mho" firstAttribute="top" secondItem="BFc-U7-vsY" secondAttribute="bottom" id="DEw-3o-NJ2"/>
+                            <constraint firstItem="OKC-w1-Mho" firstAttribute="width" secondItem="XYZ-Pa-x2g" secondAttribute="width" multiplier="0.7" id="GeR-X7-zQl"/>
+                            <constraint firstItem="Qvy-Gg-IMA" firstAttribute="top" secondItem="OKC-w1-Mho" secondAttribute="bottom" id="PvA-x6-woi"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <size key="freeformSize" width="320" height="800"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="NWe-g0-HNU" id="uYI-cx-j2i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ild-Og-Jnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1573.125" y="108.80281690140845"/>
+        </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -72,7 +172,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8H-ub-Ufe" customClass="QTRoundButton" customModule="QTAuth" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8H-ub-Ufe">
                                 <rect key="frame" x="20" y="474" width="280" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="0.82311839789999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -87,17 +187,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="lPg-D0-yoe" kind="push" id="IkN-h6-TTh"/>
                                 </connections>
@@ -114,7 +203,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" tag="101" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-vP-7Ax" customClass="QTRoundButton" customModule="QTAuth" customModuleProvider="target">
+                                                <button opaque="NO" tag="101" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-vP-7Ax">
                                                     <rect key="frame" x="0.0" y="10" width="280" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <directionalEdgeInsets key="directionalLayoutMargins" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
@@ -126,17 +215,6 @@
                                                         <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                                     </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="8"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="didTapWithButton:" destination="6Cc-HR-4sc" eventType="touchUpInside" id="a1F-1R-ICa"/>
                                                     </connections>
@@ -280,7 +358,7 @@
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6S-6N-WJr" customClass="QTRoundButton" customModule="QTAuth" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6S-6N-WJr">
                                 <rect key="frame" x="10" y="323" width="100" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.39301988399999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -290,11 +368,6 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="uWO-Br-i8f" kind="push" id="SvC-Ha-WAy"/>
                                 </connections>
@@ -383,7 +456,7 @@
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-kb-s9G" customClass="QTRoundButton" customModule="QTAuth" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4X-kb-s9G">
                                 <rect key="frame" x="10" y="298" width="100" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.39301988397464788" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -393,11 +466,6 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapContinueWithButton:" destination="ZQm-3N-IFR" eventType="touchUpInside" id="hWC-zJ-xW8"/>
                                 </connections>
@@ -544,7 +612,7 @@
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUm-EI-zae" customClass="QTRoundButton" customModule="QTAuth" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUm-EI-zae">
                                 <rect key="frame" x="10" y="372.5" width="100" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.39301988399999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -554,11 +622,6 @@
                                 <state key="normal" title="Verify">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="026-i4-Y6S">
                                 <rect key="frame" x="45.5" y="442.5" width="229.5" height="40"/>
@@ -758,7 +821,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcu-vv-bjS" customClass="QTRoundButton" customModule="QTAuth" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcu-vv-bjS">
                                                 <rect key="frame" x="10" y="396" width="100" height="40"/>
                                                 <color key="backgroundColor" red="1" green="0.39301988399999999" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -770,11 +833,6 @@
                                                 <state key="normal" title="Continue">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="didTapContinueWithButton:" destination="lPg-D0-yoe" eventType="touchUpInside" id="l64-BS-Xh6"/>
                                                 </connections>
@@ -916,9 +974,8 @@
         <image name="logo" width="230" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OSc-Bb-elz"/>
-        <segue reference="IuN-c5-miw"/>
-        <segue reference="iJK-os-UY2"/>
-        <segue reference="76I-Ug-q1u"/>
+        <segue reference="IkN-h6-TTh"/>
+        <segue reference="BT3-OO-vMA"/>
+        <segue reference="ca1-tC-OEZ"/>
     </inferredMetricsTieBreakers>
 </document>

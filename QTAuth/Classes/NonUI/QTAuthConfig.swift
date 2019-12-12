@@ -88,7 +88,7 @@ public struct Credential: Codable {
     }
 }
 
-public struct QTAuthUIConfig: Codable {
+public struct QTAuthConfig: Codable {
     
     //authProvideres
     public let authProviders: [QTAuthProvider]?
@@ -102,7 +102,7 @@ public struct QTAuthUIConfig: Codable {
     public let googleClientId: String?
     public let twitterKeys: Credential?
     public let linkedInKeys: Credential?
-    public let emaiAuthBaseUrl: String?
+    public let emailAuthBaseUrl: String?
     
     public init(authProviders: [QTAuthProvider]? = nil,
                 logo: String? = "qtlogo",
@@ -114,7 +114,7 @@ public struct QTAuthUIConfig: Codable {
                 googleClientId: String? = nil,
                 twitterKeys: Credential? = nil,
                 linkedInKeys: Credential? = nil,
-                emaiAuthBaseUrl: String? = nil) {
+                emailAuthBaseUrl: String? = nil) {
         
         self.authProviders = authProviders ?? [QTAuthProvider.email]
         self.logo = logo
@@ -126,6 +126,6 @@ public struct QTAuthUIConfig: Codable {
         self.googleClientId = googleClientId
         self.twitterKeys = twitterKeys
         self.linkedInKeys = linkedInKeys
-        self.emaiAuthBaseUrl = emaiAuthBaseUrl
+        self.emailAuthBaseUrl = emailAuthBaseUrl
     }
 }

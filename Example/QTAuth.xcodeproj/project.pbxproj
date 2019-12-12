@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		098DCAFF0DC0A6B4DBB49E0B /* Pods_QTAuth_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD681B0C843586B263EDAFF7 /* Pods_QTAuth_Example.framework */; };
-		496BB1EE332AC00980273A46 /* Pods_QTAuth_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F22F6803F3A254271A2D52 /* Pods_QTAuth_Tests.framework */; };
+		0656524383B659E5CEB2CF7D /* Pods_QTAuth_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4926BE4827BA67E45C38EB /* Pods_QTAuth_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -16,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B1C8B76323629CC700280091 /* QTAuthConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = B1C8B76223629CC700280091 /* QTAuthConfig.json */; };
+		D93EBAE1E5A6416EF2532574 /* Pods_QTAuth_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC17B75579837A8590F530F /* Pods_QTAuth_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,12 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		119FA72557DBA8F8E34A50B3 /* Pods-QTAuth_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Tests.debug.xcconfig"; path = "Target Support Files/Pods-QTAuth_Tests/Pods-QTAuth_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		0FC17B75579837A8590F530F /* Pods_QTAuth_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QTAuth_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A63037DB3B11FDF83AC94F /* QTAuth.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = QTAuth.podspec; path = ../QTAuth.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2B80ABB114C081661F49AB21 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		308B37BEBED641FA4BA6AC7A /* Pods-QTAuth_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Tests.debug.xcconfig"; path = "Target Support Files/Pods-QTAuth_Tests/Pods-QTAuth_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		31F9C5693E12C29557F5B28E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		4609CD9678D30C1BB925CFD3 /* Pods-QTAuth_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Example.debug.xcconfig"; path = "Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		53F22F6803F3A254271A2D52 /* Pods_QTAuth_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QTAuth_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5414A3F4FC91826D077359A8 /* Pods-QTAuth_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Example.debug.xcconfig"; path = "Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* QTAuth_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QTAuth_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,10 +45,10 @@
 		607FACE51AFB9204008FA782 /* QTAuth_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QTAuth_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		6642B2FA900105C0AB5A5FC9 /* Pods-QTAuth_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Example.release.xcconfig"; path = "Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8262FAA5F287F6E359BDA65E /* Pods-QTAuth_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Example.release.xcconfig"; path = "Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example.release.xcconfig"; sourceTree = "<group>"; };
+		AF4926BE4827BA67E45C38EB /* Pods_QTAuth_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QTAuth_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C8B76223629CC700280091 /* QTAuthConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = QTAuthConfig.json; sourceTree = "<group>"; };
-		B854BF4BBA0588A902E36BFC /* Pods-QTAuth_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Tests.release.xcconfig"; path = "Target Support Files/Pods-QTAuth_Tests/Pods-QTAuth_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FD681B0C843586B263EDAFF7 /* Pods_QTAuth_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QTAuth_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6345DFB7365FEC0F4AD07F6 /* Pods-QTAuth_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QTAuth_Tests.release.xcconfig"; path = "Target Support Files/Pods-QTAuth_Tests/Pods-QTAuth_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				098DCAFF0DC0A6B4DBB49E0B /* Pods_QTAuth_Example.framework in Frameworks */,
+				0656524383B659E5CEB2CF7D /* Pods_QTAuth_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,20 +64,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496BB1EE332AC00980273A46 /* Pods_QTAuth_Tests.framework in Frameworks */,
+				D93EBAE1E5A6416EF2532574 /* Pods_QTAuth_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		519B8877D54566248271AA72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF4926BE4827BA67E45C38EB /* Pods_QTAuth_Example.framework */,
+				0FC17B75579837A8590F530F /* Pods_QTAuth_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		51CCE0AB86F9916E9A30C1A3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4609CD9678D30C1BB925CFD3 /* Pods-QTAuth_Example.debug.xcconfig */,
-				6642B2FA900105C0AB5A5FC9 /* Pods-QTAuth_Example.release.xcconfig */,
-				119FA72557DBA8F8E34A50B3 /* Pods-QTAuth_Tests.debug.xcconfig */,
-				B854BF4BBA0588A902E36BFC /* Pods-QTAuth_Tests.release.xcconfig */,
+				5414A3F4FC91826D077359A8 /* Pods-QTAuth_Example.debug.xcconfig */,
+				8262FAA5F287F6E359BDA65E /* Pods-QTAuth_Example.release.xcconfig */,
+				308B37BEBED641FA4BA6AC7A /* Pods-QTAuth_Tests.debug.xcconfig */,
+				D6345DFB7365FEC0F4AD07F6 /* Pods-QTAuth_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -90,7 +99,7 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				51CCE0AB86F9916E9A30C1A3 /* Pods */,
-				FA4915A8460E9832839703FE /* Frameworks */,
+				519B8877D54566248271AA72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,15 +162,6 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		FA4915A8460E9832839703FE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FD681B0C843586B263EDAFF7 /* Pods_QTAuth_Example.framework */,
-				53F22F6803F3A254271A2D52 /* Pods_QTAuth_Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,12 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "QTAuth_Example" */;
 			buildPhases = (
-				092A0D1F870B2B6BA460345E /* [CP] Check Pods Manifest.lock */,
+				437A61B599C344F4C1214B4D /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				90214A913FDA9FDD1FE8FCA6 /* [CP] Embed Pods Frameworks */,
-				6195D00792EF7AE087EFD971 /* [CP] Copy Pods Resources */,
+				9EC5AACC6073D190762380D0 /* [CP] Embed Pods Frameworks */,
+				A625C643F8C3A7F02AC4F44A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,7 +189,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "QTAuth_Tests" */;
 			buildPhases = (
-				0126FE7274408BF303C2480E /* [CP] Check Pods Manifest.lock */,
+				F9C2CE3C72B2C98918439F21 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -269,29 +269,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0126FE7274408BF303C2480E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-QTAuth_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		092A0D1F870B2B6BA460345E /* [CP] Check Pods Manifest.lock */ = {
+		437A61B599C344F4C1214B4D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,7 +291,53 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6195D00792EF7AE087EFD971 /* [CP] Copy Pods Resources */ = {
+		9EC5AACC6073D190762380D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/IOSLinkedInAPIFix/IOSLinkedInAPIFix.framework",
+				"${BUILT_PRODUCTS_DIR}/LinkedinSwift/LinkedinSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IOSLinkedInAPIFix.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkedinSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A625C643F8C3A7F02AC4F44A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -335,44 +359,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90214A913FDA9FDD1FE8FCA6 /* [CP] Embed Pods Frameworks */ = {
+		F9C2CE3C72B2C98918439F21 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/IOSLinkedInAPIFix/IOSLinkedInAPIFix.framework",
-				"${BUILT_PRODUCTS_DIR}/LinkedinSwift/LinkedinSwift.framework",
-				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+			inputFileListPaths = (
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IOSLinkedInAPIFix.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkedinSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"$(DERIVED_FILE_DIR)/Pods-QTAuth_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QTAuth_Example/Pods-QTAuth_Example-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -526,7 +532,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4609CD9678D30C1BB925CFD3 /* Pods-QTAuth_Example.debug.xcconfig */;
+			baseConfigurationReference = 5414A3F4FC91826D077359A8 /* Pods-QTAuth_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K6F4AGE4B2;
@@ -543,7 +549,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6642B2FA900105C0AB5A5FC9 /* Pods-QTAuth_Example.release.xcconfig */;
+			baseConfigurationReference = 8262FAA5F287F6E359BDA65E /* Pods-QTAuth_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = K6F4AGE4B2;
@@ -560,7 +566,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 119FA72557DBA8F8E34A50B3 /* Pods-QTAuth_Tests.debug.xcconfig */;
+			baseConfigurationReference = 308B37BEBED641FA4BA6AC7A /* Pods-QTAuth_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = K6F4AGE4B2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -583,7 +589,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B854BF4BBA0588A902E36BFC /* Pods-QTAuth_Tests.release.xcconfig */;
+			baseConfigurationReference = D6345DFB7365FEC0F4AD07F6 /* Pods-QTAuth_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = K6F4AGE4B2;
 				FRAMEWORK_SEARCH_PATHS = (

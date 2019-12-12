@@ -3,7 +3,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'QTAuth_Example' do
-  pod 'QTAuth', :path => '../', :inhibit_warnings => false
+  pod 'QTAuth',  :path => '../', :inhibit_warnings => false
 
   target 'QTAuth_Tests' do
     inherit! :search_paths

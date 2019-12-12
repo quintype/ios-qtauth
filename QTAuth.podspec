@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QTAuth'
-  s.version          = '0.2.2'
+  s.version          = '0.2.3'
   s.summary          = 'Authentication (Login) library developed by Quintype'
 
 # This description is used to generate tags and improve search results.
@@ -41,6 +41,7 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'MaterialComponents/TextFields', '94.4.0'
   s.dependency 'FacebookLogin', '~> 0.9.0'
   s.dependency 'GoogleSignIn', '~> 5.0.1'
   s.dependency 'TwitterKit', '3.4.2'

@@ -11,13 +11,14 @@ import UIKit
 public class QTEmailLoginViewController: QTViewController {
 
     private var emailAuth: QTEmailAuth!
+    private var apiManager: AuthAPIManager!
     
     override public func viewDidLoad() {
-          super.viewDidLoad()
-          emailAuth = QTEmailAuth()
+        super.viewDidLoad()
+        emailAuth = QTEmailAuth()
+        apiManager = AuthAPIManager()
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -29,19 +30,18 @@ public class QTEmailLoginViewController: QTViewController {
     */
     
     @IBAction private func didTapContinue(button: QTRoundButton) {
+//        emailAuth.login(with: "sharath.m+1@quintype.com",
+//                        password: "asdf",
+//                        callback: { data, error in
+//
+//
+//
+//        })
         
-       
-        
-        emailAuth.login(with: "sharath.m+1@quintype.com",
-                        passowrd: "asdf",
-                        callback: { data, error in
-                            
-                            
-            
-        })
-        
-        
-        
+        apiManager.signIn(email: "sharath.m+1@quintype.com", password: "asdf") { (response, error) in
+            guard let member = response?.member, error == nil else { return }
+            print(String(describing: member))
+        }
         
     }
 

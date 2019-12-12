@@ -16,7 +16,7 @@ import LinkedinSwift
 
 //MARK: Global
 var bundle: Bundle!
-var authConfig: QTAuthUIConfig!
+var authConfig: QTAuthConfig!
 let xqtAuthKey = "X-QT-AUTH"
 
 func getAppImage(with name: String) -> UIImage? {
@@ -37,14 +37,14 @@ public class QTAuth {
         bundle = Bundle(url: tempBundle.url(forResource: "QTAuth", withExtension: "bundle")!)!
     }
     
-    public func initialize(with config: QTAuthUIConfig) {
+    public func initialize(with config: QTAuthConfig) {
         authConfig = config
     }
     
     public func initialize(with configName: String) throws {
         guard let path = Bundle.main.path(forResource: configName, ofType: "json"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
-            let decoded = try? JSONDecoder().decode(QTAuthUIConfig.self, from: data) else {
+            let decoded = try? JSONDecoder().decode(QTAuthConfig.self, from: data) else {
                 throw QTAuthError.invalidConfig
         }
     
@@ -79,17 +79,17 @@ extension QTAuth {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
       
-    func facebookOpen(url: URL, sourceApplication: String, anotation: Any) -> Bool {
+    func facebookOpen(url: URL, sourceApplication: String, annotation: Any) -> Bool {
         return ApplicationDelegate.shared.application(application,
                                                       open: url,
                                                       sourceApplication: sourceApplication,
-                                                      annotation: anotation)
+                                                      annotation: annotation)
     }
       
     func facebookOpen(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return QTAuth.instance.facebookOpen(url: url,
                                             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String,
-                                            anotation: options[UIApplication.OpenURLOptionsKey.annotation] as Any)
+                                            annotation: options[UIApplication.OpenURLOptionsKey.annotation] as Any)
     }
 }
 
