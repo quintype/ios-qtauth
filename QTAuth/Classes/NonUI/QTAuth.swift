@@ -9,15 +9,18 @@
 import Foundation
 import UIKit
 import FBSDKCoreKit
-import FBSDKLoginKit
+import FacebookLogin
 import GoogleSignIn
 import TwitterKit
-import LinkedinSwift
 
 //MARK: Global
 var bundle: Bundle!
-var authConfig: QTAuthConfig!
-let xqtAuthKey = "X-QT-AUTH"
+var authConfig: QTAuthConfig! {
+    didSet {
+        GIDSignIn.sharedInstance().clientID = authConfig.googleClientId
+    }
+}
+let xqtAuthKey = "x-qt-auth"
 
 func getAppImage(with name: String) -> UIImage? {
     return UIImage(named: name, in: Bundle.main, compatibleWith: nil)
@@ -25,12 +28,15 @@ func getAppImage(with name: String) -> UIImage? {
 
 public class QTAuth {
     public static let instance: QTAuth = QTAuth()
+    public let apiManager =  AuthAPIManager()
     public var didFinishSignin: ((Any?, QTAuthError?) -> Void) = {_, _ in}
     public var didFinishSignup: ((Any?, QTAuthError?) -> Void) = {_, _ in}
     public var didResetPassword: ((Any?, QTAuthError?) -> Void) = {_, _ in}
     public var didSendResetPasswordLink: ((Any?, QTAuthError?) -> Void) = {_, _ in}
     
     private var application: UIApplication!
+    public static var termsOfServiceUrl: String?
+    public static var privacyPolicyUrl: String?
     
     private init() {
         let tempBundle = Bundle(for: QTAuth.self)
@@ -47,16 +53,45 @@ public class QTAuth {
             let decoded = try? JSONDecoder().decode(QTAuthConfig.self, from: data) else {
                 throw QTAuthError.invalidConfig
         }
-    
         authConfig = decoded
     }
-    
     public var rootController: UIViewController {
         let storyBoard : UIStoryboard = UIStoryboard(name: "QTAuth", bundle: bundle)
-        let rootController = storyBoard.instantiateViewController(withIdentifier: "QTLoginViewController")
+        let viewControllerIdentifier = signedInMemberInfo != nil ? "MyProfileViewController" : "SignInViewController"
+        let rootController = storyBoard.instantiateViewController(withIdentifier: viewControllerIdentifier)
         return rootController
     }
-    
+    public var signedInMemberInfo: MemberResponse? {
+        get {
+            guard let data = UserDefaults.standard.object(forKey: "MemberInfo") as? Data else { return nil }
+            guard let info = try? JSONDecoder().decode(MemberResponse.self, from: data) else { return nil }
+            guard info.xQTAuth != nil, info.member?.verificationStatus != nil else { return nil }
+            return info
+        }
+        set {
+            if let info = newValue {
+                guard info.xQTAuth != nil, info.member?.verificationStatus != nil else { return }
+                guard let jsonData = try? JSONEncoder().encode(info) else { return }
+                UserDefaults.standard.set(jsonData, forKey: "MemberInfo")
+                print("Saving new signedInMemberInfo: " + String(describing: newValue))
+            } else { // Signing out
+                UserDefaults.standard.removeObject(forKey: "MemberInfo")
+                print("Removed signedInMemberInfo")
+            }
+        }
+    }
+    public var isProfilePicUpdate: Bool? {
+        get {
+            return UserDefaults.standard.bool(forKey: "ProfilePicUpdate")
+        }
+        set {
+            if let value = newValue {
+                UserDefaults.standard.set(value, forKey: "ProfilePicUpdate")
+            } else {
+                 UserDefaults.standard.removeObject(forKey: "ProfilePicUpdate")
+            }
+        }
+    }
     public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
         if url.absoluteString.contains("facebook") {
@@ -65,8 +100,6 @@ public class QTAuth {
             return handleGoogleSignin(url: url)
         } else if url.absoluteString.contains("twitter") {
             return twitterOpen(app, open: url, options: options)
-        } else if LinkedinSwiftHelper.shouldHandle(url) {
-            return linkedInOpen(app, open: url, options: options)
         }
         return false
     }
@@ -74,22 +107,16 @@ public class QTAuth {
 
 //MARK: FaceBook
 extension QTAuth {
-    public func configFacebookAuth(with  application: UIApplication, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    public func configFacebookAuth(with application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         self.application = application
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
       
-    func facebookOpen(url: URL, sourceApplication: String, annotation: Any) -> Bool {
+    func facebookOpen(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return ApplicationDelegate.shared.application(application,
                                                       open: url,
-                                                      sourceApplication: sourceApplication,
-                                                      annotation: annotation)
-    }
-      
-    func facebookOpen(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return QTAuth.instance.facebookOpen(url: url,
-                                            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String,
-                                            annotation: options[UIApplication.OpenURLOptionsKey.annotation] as Any)
+                                                      sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                      annotation: options[UIApplication.OpenURLOptionsKey.annotation] as Any)
     }
 }
 
@@ -104,14 +131,5 @@ extension QTAuth {
 extension QTAuth {
     public func twitterOpen(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
-    }
-}
-
-//MARK: Linked-in Sign-in
-extension QTAuth {
-    public func linkedInOpen(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let sourceApp =  options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String
-        let anotation = options[UIApplication.OpenURLOptionsKey.annotation]
-        return LinkedinSwiftHelper.application(app, open: url, sourceApplication: sourceApp, annotation: anotation)
     }
 }

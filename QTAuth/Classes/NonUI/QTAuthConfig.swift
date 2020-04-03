@@ -8,12 +8,19 @@
 
 import Foundation
 import UIKit
-
+enum SegueIdentifier: String {
+    case staticPageSegue = "StaticpageSegue"
+    case signInEmailVerificationSegue = "SignInEmailVerificationSegue"
+}
+struct StaticPageUrl {
+    static let privacyPolicy = QTAuth.privacyPolicyUrl ?? ""
+    static let termsAndCondition = QTAuth.termsOfServiceUrl ?? ""
+    
+}
 public enum QTAuthProvider: String, Codable {
     case facebook
     case google
     case twitter
-    case linkedIn
     case email
     
     public var logo: UIImage? {
@@ -25,8 +32,6 @@ public enum QTAuthProvider: String, Codable {
             return UIImage(named: "Google", in: bundle, compatibleWith: nil)
         case .twitter:
             return UIImage(named: "Twitter", in: bundle, compatibleWith: nil)
-        case .linkedIn:
-            return UIImage(named: "LinkedIn", in: bundle, compatibleWith: nil)
         case .email:
             return UIImage(named: "Mail", in: bundle, compatibleWith: nil)
         }
@@ -40,8 +45,6 @@ public enum QTAuthProvider: String, Codable {
             return "Log-in with Google"
         case .twitter:
             return "Log-in with Twitter"
-        case .linkedIn:
-            return "Log-in with Linked-in"
         case .email:
             return "Log-in with Email"
         }
@@ -101,7 +104,6 @@ public struct QTAuthConfig: Codable {
     
     public let googleClientId: String?
     public let twitterKeys: Credential?
-    public let linkedInKeys: Credential?
     public let emailAuthBaseUrl: String?
     
     public init(authProviders: [QTAuthProvider]? = nil,
@@ -113,7 +115,6 @@ public struct QTAuthConfig: Codable {
                 secondaryFont: QTFontInfo? = QTFontInfo(name: "Helvetica", size: 14),
                 googleClientId: String? = nil,
                 twitterKeys: Credential? = nil,
-                linkedInKeys: Credential? = nil,
                 emailAuthBaseUrl: String? = nil) {
         
         self.authProviders = authProviders ?? [QTAuthProvider.email]
@@ -125,7 +126,6 @@ public struct QTAuthConfig: Codable {
         self.secondaryFont = secondaryFont
         self.googleClientId = googleClientId
         self.twitterKeys = twitterKeys
-        self.linkedInKeys = linkedInKeys
         self.emailAuthBaseUrl = emailAuthBaseUrl
     }
 }

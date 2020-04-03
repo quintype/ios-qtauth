@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 
 // MARK:- Parameter Encoding
 
@@ -95,7 +96,7 @@ public struct FORMParameterEncoder: ParameterEncoder {
         let string = parameterArray.joined(separator: "&")
         urlRequest.httpBody = string.data(using: .utf8)
         if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
-            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         }
     }
 }
@@ -143,6 +144,10 @@ class Router<EndPoint: EndPointType>: NSObject, NetworkRouter, URLSessionDelegat
     private var task: URLSessionTask?
     
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
+        guard Reachability.isConnectedToNetwork() else {
+            completion(nil, nil, NetworkError.noInternet)
+            return
+        }
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForResource = 60
         if #available(iOS 11, *) {
@@ -223,28 +228,26 @@ class Router<EndPoint: EndPointType>: NSObject, NetworkRouter, URLSessionDelegat
 
 class ResponseHandler {
     
-    enum NetworkResponse:String {
+    enum NetworkResponse: String {
         case success
-        case authenticationError = "You need to be authenticated first."
-        case badRequest = "Bad request"
-        case outdated = "The url you requested is outdated."
+        case invalidRequest = "Invalid request - cannot be fulfilled"
+        case badRequest = "Server failed to fulfil the request"
         case failed = "Network request failed."
         case noData = "Response returned with no data to decode."
         case unableToDecode = "We could not decode the response."
     }
 
-    enum Result<String>{
+    enum Result<String> {
         case success
         case failure(String)
     }
 
-    class func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
+    class func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String> {
         switch response.statusCode {
         case 200...299: return .success
-        case 401...500: return .failure(NetworkResponse.authenticationError.rawValue)
-        case 501...599: return .failure(NetworkResponse.badRequest.rawValue)
-        case 600: return .failure(NetworkResponse.outdated.rawValue)
-        default: return .failure(NetworkResponse.failed.rawValue)
+        case 401...500: return .failure(NetworkResponse.invalidRequest.rawValue + " Status Code: \(response.statusCode)")
+        case 501...599: return .failure(NetworkResponse.badRequest.rawValue + " Status Code: \(response.statusCode)")
+        default: return .failure(NetworkResponse.failed.rawValue + " Status Code: \(response.statusCode)")
         }
     }
 }
@@ -254,11 +257,11 @@ public enum NetworkError: Error {
     case parametersNil
     case encodingFailed
     case missingURL
-    case NoInternet
-    case NoData
-    case ParsingError
-    case Paging
-    case Custom(message: String)
+    case noInternet
+    case noData
+    case parsingError
+    case paging
+    case custom(message: String)
     
     var errorMessage: String {
         switch self {
@@ -268,15 +271,15 @@ public enum NetworkError: Error {
             return "Parameter encoding failed."
         case .missingURL:
             return "URL is nil."
-        case .NoInternet:
+        case .noInternet:
             return "Please check your network connection."
-        case .NoData:
+        case .noData:
             return "Response returned with no data to decode."
-        case .ParsingError:
+        case .parsingError:
             return "Parsing Error."
-        case .Paging:
+        case .paging:
             return "Paging"
-        case .Custom(let message):
+        case .custom(let message):
             return message
         }
     }
@@ -315,4 +318,40 @@ class NetworkLogger {
     
     static func log(response: URLResponse) {}
     
+}
+
+public class Reachability {
+
+    class func isConnectedToNetwork() -> Bool {
+
+        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+
+        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+            return false
+        }
+
+        /* Only Working for WIFI
+        let isReachable = flags == .reachable
+        let needsConnection = flags == .connectionRequired
+
+        return isReachable && !needsConnection
+        */
+
+        // Working for Cellular and WIFI
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        let ret = (isReachable && !needsConnection)
+
+        return ret
+
+    }
 }
