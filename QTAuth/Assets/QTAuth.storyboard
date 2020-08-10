@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -546,7 +546,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ild-Og-Jnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="pmM-3N-Zx2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3106.4000000000001" y="119.64017991004499"/>
+            <point key="canvasLocation" x="-3106" y="171"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="5gY-ch-hq8">
@@ -871,7 +871,7 @@
                                     <color key="titleColor" red="0.93333333333333335" green="0.25098039215686274" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="triggerOTP" destination="uWO-Br-i8f" eventType="touchUpInside" id="jKg-Zk-7Ml"/>
+                                    <action selector="triggerEmailVerification" destination="uWO-Br-i8f" eventType="touchUpInside" id="jKg-Zk-7Ml"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tuf-RN-qDR" userLabel="T&amp;C Stack View">
@@ -1120,6 +1120,7 @@
                     <connections>
                         <outlet property="addressLabel" destination="awn-Pv-WYH" id="pUH-dK-Pdx"/>
                         <outlet property="addressStackView" destination="hzd-jM-alk" id="y9a-Am-j6N"/>
+                        <outlet property="changePasswordButton" destination="zcM-wB-t5y" id="VG8-XO-qwf"/>
                         <outlet property="contactLabel" destination="4kQ-7a-K2e" id="CQ0-SY-GLu"/>
                         <outlet property="contactStackView" destination="RWQ-MC-j4G" id="999-a0-YTj"/>
                         <outlet property="dobLabel" destination="UyL-AI-kK8" id="uZG-20-t6t"/>
@@ -1214,7 +1215,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.93333333333333335" green="0.25098039215686274" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.76926177580821919" green="0.24445948000000001" blue="0.069403871889999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="AAe-Im-tvw"/>
                                                     <constraint firstAttribute="width" constant="40" id="iBf-Ix-eZb"/>
@@ -1283,6 +1284,11 @@
             <point key="canvasLocation" x="-1550" y="-663"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nhK-QC-983"/>
+        <segue reference="NOl-CQ-hao"/>
+        <segue reference="Z4h-EA-4Yw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Edit" width="256" height="256"/>
         <image name="Facebook-QTAuth" width="120" height="120"/>
@@ -1290,9 +1296,4 @@
         <image name="Logo-QTAuth" width="230" height="52"/>
         <image name="ProfileIcon" width="530" height="530"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="HmA-MT-Nz2"/>
-        <segue reference="wFw-F1-O2B"/>
-        <segue reference="BtA-he-ZLj"/>
-    </inferredMetricsTieBreakers>
 </document>

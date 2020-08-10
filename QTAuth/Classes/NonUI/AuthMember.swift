@@ -9,16 +9,29 @@ import Foundation
 
 public struct MemberResponse: Codable {
     public let member: AuthMember?
-    public var xQTAuth: String?
+    public let user: AuthMember? //"user" serves the same purpose as member, added for bridgekeeper support
+    public var xQTAuth: String? //xQTAuth is saved from response
     public let provider: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case member, user, provider, xQTAuth //xQTAuth here is just for UserDefaults encoding
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.member = (try? container.decode(AuthMember?.self, forKey: .member)) ?? (try? container.decode(AuthMember?.self, forKey: .user))
+        self.user = try? container.decode(AuthMember?.self, forKey: .user)
+        self.provider = try? container.decode(String.self, forKey: .provider)
+        self.xQTAuth = try? container.decode(String?.self, forKey: .xQTAuth) //xQTAuth here is just for UserDefaults encoding
+    }
+    
 }
 
 public struct ErrorResponse: Codable {
-    
-    struct AuthError: Codable {
-        let message: String?
-    }
-    let error: AuthError?
+    let error: AuthErrorResponse?
+}
+public struct AuthErrorResponse: Codable {
+    let message: String?
 }
 
 public struct AuthMember: Codable {

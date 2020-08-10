@@ -13,6 +13,7 @@ enum AuthEndPoints {
     case signUp(email: String, password: String, name: String)
     case socialLogin(platform: String, token: String)
     case emailVerification(email: String)
+    case sendOTP(email: String)
     case verifyOTP(id: Int, otp: Int)
     case resetPassword(email: String)
     case fetchMemberInfo(xQTAuth: String)
@@ -37,19 +38,21 @@ extension AuthEndPoints: EndPointType {
     var path: String {
         switch self {
         case .signIn:
-            return "/api/member/login"
+            return "/api/auth/v1/login"
         case .signUp:
-            return "/api/member"
+            return "/api/auth/v1/signup"
         case let .socialLogin(platform, _):
-            return "/api/login/\(platform)"
+            return "/api/auth/v1/login/\(platform)"
         case .emailVerification:
+            return "/api/auth/v1/users/send-verification-link"
+        case .sendOTP:
             return "/api/v1/members/verification-email"
         case let .verifyOTP(id, _):
             return "/api/v1/members/\(id)"
         case let .changePassword(id, _, _, _):
             return "/api/v1/members/\(id)"
         case .resetPassword:
-            return "/api/member/forgot-password"
+            return "/api/auth/v1/users/forgot-password"
         case .fetchMemberInfo:
             return "/api/v1/members/me"
         case .updateMemberMetadata:
@@ -65,7 +68,7 @@ extension AuthEndPoints: EndPointType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .signIn, .signUp, .socialLogin, .emailVerification, .updateMemberMetadata, .resetPassword:
+        case .signIn, .signUp, .socialLogin, .emailVerification, .sendOTP, .updateMemberMetadata, .resetPassword:
             return .post
         case .verifyOTP, .changePassword:
             return .patch
@@ -82,7 +85,7 @@ extension AuthEndPoints: EndPointType {
         switch self {
         case let .signIn(email, password):
             let bodyParameters: [String: Any] = [
-                "email": email,
+                "username": email,
                 "password": password
             ]
             return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: ["x-qt-auth": "dummy"])
@@ -94,18 +97,23 @@ extension AuthEndPoints: EndPointType {
                 "username": email,
                 "password": password,
                 "dont-login": true,
-                "send-welcome-email-delay": 0
             ]
             return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: ["x-qt-auth": "dummy"])
             
         case let .socialLogin(_, token):
             let bodyParameters: [String: Any] = [
-                "token": ["access-token": token],
-                "set-session": true
+                "token": token,
             ]
             return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: ["x-qt-auth": "dummy"])
             
         case let .emailVerification(email):
+            let bodyParameters: [String: Any] = [
+                "email": email,
+                "redirect-url": baseURL.absoluteString
+            ]
+            return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: nil)
+            
+        case let .sendOTP(email):
             let bodyParameters: [String: Any] = [
                 "member": ["email": email]
             ]
@@ -120,14 +128,17 @@ extension AuthEndPoints: EndPointType {
             return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: ["x-qt-auth": "dummy"])
             
         case let .resetPassword(email):
-            let bodyParameters: [String: Any] = ["email": email]
+            let bodyParameters: [String: Any] = [
+                "email": email,
+                "current-host": baseURL.absoluteString
+            ]
             return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: nil)
             
         case let .changePassword(_, otp, password, xQTAuth):
             let bodyParameters: [String: Any] = [
                 "otp": otp,
-                "login": true,
-                "member": ["password": password]
+                // "login": true,
+                "member": ["verification-status": "email", "password": password]
             ]
             return .requestParametersAndHeaders(bodyParameters: bodyParameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: ["x-qt-auth": xQTAuth])
             

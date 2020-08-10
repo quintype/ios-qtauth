@@ -29,8 +29,8 @@ class SignUpViewController: AuthBaseViewController {
     var urlString: String?
     var memberResponse: MemberResponse? {
         didSet {
-            guard memberResponse?.member?.verificationStatus != nil else {
-                self.performSegue(withIdentifier: emailVerificationSegueIdentifier, sender: nil)
+            guard memberResponse?.member?.verificationStatus != nil || memberResponse?.provider != nil else {
+                triggerEmailVerification(email: memberResponse?.member?.email)
                 return
             }
             guard memberResponse?.xQTAuth != nil else {
@@ -117,6 +117,26 @@ class SignUpViewController: AuthBaseViewController {
                     if response?.member != nil {
                         self?.memberResponse = response
                     }
+                }
+            }
+        }
+    }
+    
+    func triggerEmailVerification(email: String?) {
+        guard let email = email else { return }
+        presentLoadingAlertController()
+        QTAuth.instance.apiManager.triggerEmailVerification(email: email) { [weak self] (isSuccess, error) in
+            DispatchQueue.main.async {
+                self?.dismissLoadingAlertController() {_ in
+                if let error = error {
+                    self?.displayAlertWith(title: "Error", message: error.errorMessage, okTitle: "OK")
+                }
+                if isSuccess {
+                    let message = "We have sent an activation email to you at \(email). Please check your inbox"
+                    self?.displayAlertWith(title: "Activate", message: message, okTitle: "OK", cancelTitle: nil, completionBlock: { [weak self] (_) in
+                        self?.popAuthViewControllers()
+                    })
+                }
                 }
             }
         }
@@ -221,7 +241,8 @@ extension SignUpViewController: GIDSignInDelegate {
                 let message = "The user has not signed in before or they have since signed out."
                 self.displayAlertWith(title: "Error", message: message, okTitle: "OK")
             } else {
-                self.displayAlertWith(title: "Error", message: error.localizedDescription, okTitle: "OK")
+                let message = "Login cancelled."
+                self.displayAlertWith(title: "Error", message: message, okTitle: "OK")
             }
             QTAuth.instance.didFinishSignin(nil, .authFailed)
             return

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QTAuth'
-  s.version          = '0.2.5'
+  s.version          = '0.3.0'
   s.summary          = 'Authentication (Login) library developed by Quintype'
 
 # This description is used to generate tags and improve search results.

@@ -48,7 +48,7 @@ class EmailVerificationViewController: AuthBaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        triggerOTP()
+        triggerEmailVerification()
     }
     
     // MARK: Input Validation
@@ -91,10 +91,10 @@ class EmailVerificationViewController: AuthBaseViewController {
         self.urlString = StaticPageUrl.termsAndCondition
         self.performSegue(withIdentifier: SegueIdentifier.staticPageSegue.rawValue, sender: nil)
     }
-    @IBAction func triggerOTP() {
+    @IBAction func triggerEmailVerification() {
         guard let email = emailID else { return }
         presentLoadingAlertController()
-        QTAuth.instance.apiManager.sendOTP(email: email) { [weak self] (isSuccess, error) in
+        QTAuth.instance.apiManager.triggerEmailVerification(email: email) { [weak self] (isSuccess, error) in
             DispatchQueue.main.async {
                 self?.dismissLoadingAlertController() {_ in
                 if let error = error {

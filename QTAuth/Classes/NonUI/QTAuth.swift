@@ -65,12 +65,12 @@ public class QTAuth {
         get {
             guard let data = UserDefaults.standard.object(forKey: "MemberInfo") as? Data else { return nil }
             guard let info = try? JSONDecoder().decode(MemberResponse.self, from: data) else { return nil }
-            guard info.xQTAuth != nil, info.member?.verificationStatus != nil else { return nil }
+            guard info.xQTAuth != nil, info.member?.verificationStatus != nil || info.provider != nil else { return nil }
             return info
         }
         set {
             if let info = newValue {
-                guard info.xQTAuth != nil, info.member?.verificationStatus != nil else { return }
+                guard info.xQTAuth != nil, info.member?.verificationStatus != nil || info.provider != nil else { return }
                 guard let jsonData = try? JSONEncoder().encode(info) else { return }
                 UserDefaults.standard.set(jsonData, forKey: "MemberInfo")
                 print("Saving new signedInMemberInfo: " + String(describing: newValue))

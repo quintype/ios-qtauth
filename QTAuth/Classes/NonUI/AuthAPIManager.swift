@@ -41,8 +41,8 @@ public class AuthAPIManager {
                         callback(nil, NetworkError.custom(message: message))
                         return
                     }
-                    if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
-                        callback(nil, NetworkError.custom(message: errorResponse.error?.message ?? message))
+                    if let errorResponse = try? JSONDecoder().decode(AuthErrorResponse.self, from: data) {
+                        callback(nil, NetworkError.custom(message: errorResponse.message ?? message))
                     }
                 }
                 return
@@ -81,8 +81,8 @@ public class AuthAPIManager {
                         callback(nil, NetworkError.custom(message: message))
                         return
                     }
-                    if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
-                        callback(nil, NetworkError.custom(message: errorResponse.error?.message ?? message))
+                    if let errorResponse = try? JSONDecoder().decode(AuthErrorResponse.self, from: data) {
+                        callback(nil, NetworkError.custom(message: errorResponse.message ?? message))
                     }
                 }
                 return
@@ -91,8 +91,29 @@ public class AuthAPIManager {
         }
     }
     
-    func sendOTP(email: String, callback: @escaping (Bool, NetworkError?) -> Void) {
+    func triggerEmailVerification(email: String, callback: @escaping (Bool, NetworkError?) -> Void) {
         self.router.request(.emailVerification(email: email)) { (_ , response, error) in
+            guard error == nil else {
+                callback(false, error as? NetworkError ?? NetworkError.custom(message: error!.localizedDescription))
+                return
+            }
+            if let response = response as? HTTPURLResponse {
+                let result = ResponseHandler.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    callback(true, nil)
+                case .failure(let message):
+                    print("API Failure Log: " + message)
+                    callback(false, NetworkError.custom(message: message))
+                }
+                return
+            }
+            callback(false, NetworkError.custom(message: "No response received"))
+        }
+    }
+    
+    func sendOTP(email: String, callback: @escaping (Bool, NetworkError?) -> Void) {
+        self.router.request(.sendOTP(email: email)) { (_ , response, error) in
             guard error == nil else {
                 callback(false, error as? NetworkError ?? NetworkError.custom(message: error!.localizedDescription))
                 return
@@ -243,8 +264,8 @@ public class AuthAPIManager {
                         callback(nil, NetworkError.custom(message: message))
                         return
                     }
-                    if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
-                        callback(nil, NetworkError.custom(message: errorResponse.error?.message ?? message))
+                    if let errorResponse = try? JSONDecoder().decode(AuthErrorResponse.self, from: data) {
+                        callback(nil, NetworkError.custom(message: errorResponse.message ?? message))
                     }
                 }
                 return

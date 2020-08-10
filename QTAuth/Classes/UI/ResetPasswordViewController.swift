@@ -79,8 +79,10 @@ class ResetPasswordViewController: AuthBaseViewController {
                         self?.displayAlertWith(title: "Error", message: error.errorMessage, okTitle: "OK")
                     }
                     if isSuccess {
-                        let message = "Please check your email for one time password (OTP)"
-                        self?.displayAlertWith(title: "OTP Sent", message: message, okTitle: "OK")
+                        let message = "We have sent a reset link to you at \(email). Please check your inbox"
+                        self?.displayAlertWith(title: "Activate", message: message, okTitle: "OK", cancelTitle: nil, completionBlock: { [weak self] (_) in
+                            self?.popAuthViewControllers()
+                        })
                     }
                 }
             }

@@ -21,6 +21,7 @@ class MyProfileViewController: AuthBaseViewController {
     @IBOutlet weak var addressStackView: UIStackView!
     @IBOutlet weak var dobStackView: UIStackView!
     @IBOutlet weak var contactStackView: UIStackView!
+    @IBOutlet weak var changePasswordButton: UIButton!
     
     
     @IBOutlet weak var profilePic: UIImageView!
@@ -62,6 +63,7 @@ class MyProfileViewController: AuthBaseViewController {
         self.xQTAuth = xQTAuth
         nameLabel.text = memberInfo.member?.name
         emailLabel.text = memberInfo.member?.email
+        changePasswordButton.isHidden = memberInfo.provider != nil || memberInfo.member?.verificationStatus?.contains("social") ?? false
         self.navigationItem.title = "My Profile"
         let customBackButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = customBackButton
